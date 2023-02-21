@@ -1,4 +1,4 @@
-export interface Pokemon {
+export default interface PokemonInterface{
     name: string,
     abilities: Array<Abilities>,
     moves: Array<Moves>,
