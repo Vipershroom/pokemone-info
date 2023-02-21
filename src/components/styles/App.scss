@@ -10,14 +10,21 @@ body {
 }
 
 .container {
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+
+    .form-component {
+        margin-top: 2rem;
+    }
 
     .card {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 50%;
+        width: 40%;
         height: 60vh;
         border: 1px solid black;
 
@@ -28,6 +35,14 @@ body {
                 width: 100%;
                 height: 100%;
             }
+        }
+        
+        .entries {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
         }
     }
 }

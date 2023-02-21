@@ -8,8 +8,11 @@ const Pokemon = () => {
       <div className='img'>
         <img src={IMG} alt=""/>
       </div>
-      <div className="field">
-        <h2>Hi</h2>
+      <div className="entries">
+        <ul>
+          <li>Hi</li>
+          <li>Bye</li>
+        </ul>
       </div>
     </>
   )

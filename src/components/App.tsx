@@ -27,7 +27,9 @@ function App() {
       <div className="card">
         {(state.select === "Pokemon") ? <Pokemon /> : <Item /> }
       </div>
-      <Form onSubmit={handleForm}/>
+      <div className="form-component">
+        <Form onSubmit={handleForm}/>
+      </div>
     </div>
   )
 }
