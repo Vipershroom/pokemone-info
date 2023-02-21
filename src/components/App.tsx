@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Form from './Form'
 import Pokemon from './Pokemon'
 import Item from './Item'
+import './styles/App.scss'
 
 interface Output {
   search: string,
@@ -9,7 +10,7 @@ interface Output {
 }
 
 function App() {
-  
+
   const [state, setState] = useState({
     search: 'clefairy',
     select: "Pokemon",
