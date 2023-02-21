@@ -4,11 +4,6 @@ interface onSubmit {
     onSubmit: Function
 }
 
-interface Data {
-    search: string,
-    select: string
-}
-
 const Form = (props: onSubmit) => {
     const [input, setInput] = useState({
         search: '',

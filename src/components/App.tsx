@@ -9,11 +9,12 @@ interface Output {
 }
 
 function App() {
+  
   const [state, setState] = useState({
     search: 'clefairy',
     select: "Pokemon",
   })
-  const [toggle, setToggle] = useState(true)
+
   const handleForm = (output: Output) => {
     output.search = output.search.toLowerCase()
     console.log(output)
