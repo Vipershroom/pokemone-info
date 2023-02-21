@@ -1,4 +1,4 @@
-interface Items {
+export interface Items {
     name: string,
     id: number,
     sprite: string,

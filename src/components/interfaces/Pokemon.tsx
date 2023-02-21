@@ -1,4 +1,4 @@
-interface Pokemon {
+export interface Pokemon {
     name: string,
     abilities: Array<Abilities>,
     moves: Array<Moves>,
