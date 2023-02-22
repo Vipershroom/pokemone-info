@@ -24,7 +24,7 @@ export default interface PokemonInterface{
   }
   
   interface Types {
-    types: {
+    type: {
       name: string,
       url: string
     }
