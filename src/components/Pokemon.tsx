@@ -4,12 +4,12 @@ import './styles/shared.scss'
 import IMG from '../assets/pikachutest.png'
 
 const Pokemon = (props: PokemonInterface) => {
-  console.log(props.abilities)
+  console.log(props.moves)
 
   const handleOverflow = () => {
     let new_arr = []
     for (let i = 0; i < 4; i++) {
-      new_arr.push(props.moves[i].move)
+      new_arr.push(props.moves[i].move.name)
     }
     return new_arr
   }
@@ -31,7 +31,7 @@ const Pokemon = (props: PokemonInterface) => {
             })}
           </li>
           <li>Moves: {handleOverflow().map((obj) => {
-            return <p>{obj.name}</p>
+            return <p>{obj}</p>
           })}</li>
           <li>Types: {props.types.map((obj) => {
             return (
