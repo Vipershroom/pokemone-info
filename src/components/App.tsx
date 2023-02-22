@@ -31,7 +31,7 @@ function App() {
     id: 0,
     types: [],
     sprites: {
-      front_default: ''
+      front_default: "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
     }
   })
 
@@ -41,16 +41,13 @@ function App() {
       data.then((response: PokemonInterface) => {
         if (response === undefined) {
           setRender({
-            name: 'Not found',
-            abilities: [],
-            moves: [],
-            id: 0,
-            types: [],
+            ...render,
+            name: "Not found",
             sprites: {
-              front_default: ''
+              front_default: "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
             }
           })
-          console.log(render)
+          return
         }
         const poke: PokemonInterface = {
           name: response.name,
