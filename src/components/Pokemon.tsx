@@ -7,10 +7,16 @@ const Pokemon = (props: PokemonInterface) => {
   console.log(props.moves)
 
   const handleOverflow = () => {
-    return [props.moves[0].move.name,
-    props.moves[1].move.name,
-    props.moves[2].move.name,
-    props.moves[3].move.name]
+    let new_arr = []
+    let counter = 0
+    for (let i of props.moves) {
+      if (counter === 4) {
+        break
+      }
+      new_arr.push(i.move.name)
+      counter += 1
+    }
+    return new_arr
   }
 
   return (
@@ -34,7 +40,9 @@ const Pokemon = (props: PokemonInterface) => {
           })}</li>
           <li>Types: {props.types.map((obj) => {
             return (
+              <React.Fragment>
               <p>{obj.type.name}</p>
+              </React.Fragment>
             )
           })}</li>
         </ul>
