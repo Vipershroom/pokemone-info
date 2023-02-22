@@ -96,7 +96,7 @@ function App() {
       const response = await fetch(url)
       return await response.json()
     } catch {
-      console.log("ERROR")
+      console.log("ERROR handling request to api")
     }
   }
   

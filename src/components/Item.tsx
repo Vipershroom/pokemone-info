@@ -2,7 +2,7 @@ import React from 'react'
 import ItemsInterface from './interfaces/ItemsInterface'
 
 const Item = (props: ItemsInterface) => {
-  
+
   return (
     <>
       <div className='img'>

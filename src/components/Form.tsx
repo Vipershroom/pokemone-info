@@ -9,12 +9,36 @@ const Form = (props: onSubmit) => {
         search: '',
         select: 'Pokemon',
     })
+
+    const addHyphen = (str: string) => {
+        let new_str = ""
+        for (let i of str) {
+          if (i === " ") {
+            new_str += "-"
+            continue
+          }
+          new_str += i
+        }
+        return new_str
+      }
+    
+      
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         if (input.search === "" || input.search === " ") {
             return
         }
-        props.onSubmit(input)
+        console.log(input.select === "Items")
+        console.log(input.search)
+        setInput({
+            ...input,
+            search: addHyphen(input.search),
+        })
+
+        props.onSubmit({
+            ...input,
+            search: addHyphen(input.search)
+        })
         setInput({
             search: '',
             select: input.select,
