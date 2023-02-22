@@ -4,6 +4,7 @@ import './styles/shared.scss'
 import IMG from '../assets/pikachutest.png'
 
 const Pokemon = (props: PokemonInterface) => {
+  console.log(props.abilities)
   return (
     <>
       <div className='img'>
@@ -11,9 +12,15 @@ const Pokemon = (props: PokemonInterface) => {
       </div>
       <div className="entries">
         <ul className='list'>
-          <li>Name: </li>
-          <li>Id: </li>
-          <li>Abilities: </li>
+          <li>Name: {props.name}</li>
+          <li>Id: {props.id}</li>
+          <li>Abilities: 
+            {props.abilities.map((obj) => {
+              return (
+                <p>{obj.ability.name}</p>
+              )
+            })}
+          </li>
           <li>Moves: </li>
           <li>Types: </li>
         </ul>

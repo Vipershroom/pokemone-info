@@ -1,3 +1,20 @@
 .list {
     list-style: none;
+    margin-top: 1rem;
+
+    li {
+        display: flex;
+        margin-top: 1rem;
+        color: black;
+        width: 100%;
+        text-transform: capitalize;
+    }
+
+    p {
+        margin-left: .5rem;
+        border: 1px solid transparent;
+        background-color: red;
+        color: white;
+        padding: .2rem;
+    }
 }
