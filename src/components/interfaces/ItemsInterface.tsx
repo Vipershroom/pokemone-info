@@ -1,7 +1,9 @@
-export default interface Items {
+export default interface ItemsInterface {
     name: string,
     id: number,
-    sprite: string,
+    sprites: {
+      default: string
+    }, 
     category: {
       name: string
     }
