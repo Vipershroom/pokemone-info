@@ -40,9 +40,7 @@ const Pokemon = (props: PokemonInterface) => {
           })}</li>
           <li>Types: {props.types.map((obj) => {
             return (
-              <React.Fragment>
               <p>{obj.type.name}</p>
-              </React.Fragment>
             )
           })}</li>
         </ul>
