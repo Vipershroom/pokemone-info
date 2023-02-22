@@ -26,8 +26,8 @@ const Pokemon = (props: PokemonInterface) => {
       </div>
       <div className="entries">
         <ul className='list'>
-          <li>Name: {props.name}</li>
-          <li>Id: {props.id}</li>
+          <li>Name: <p>{props.name}</p></li>
+          <li>Id: <p>{props.id}</p></li>
           <li>Abilities: 
             {props.abilities.map((obj) => {
               return (
