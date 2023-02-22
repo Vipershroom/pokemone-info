@@ -1,17 +1,21 @@
 import React from 'react'
 import PokemonInterface from './interfaces/PokemonInterface'
-import IMG from '../assets/react.svg'
+import './styles/shared.scss'
+import IMG from '../assets/pikachutest.png'
 
-const Pokemon = () => {
+const Pokemon = (props: PokemonInterface) => {
   return (
     <>
       <div className='img'>
-        <img src={IMG} alt=""/>
+        <img src={props.sprites.front_default} alt=""/>
       </div>
       <div className="entries">
-        <ul>
-          <li>Hi</li>
-          <li>Bye</li>
+        <ul className='list'>
+          <li>Name: </li>
+          <li>Id: </li>
+          <li>Abilities: </li>
+          <li>Moves: </li>
+          <li>Types: </li>
         </ul>
       </div>
     </>
