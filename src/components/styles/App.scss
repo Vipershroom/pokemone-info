@@ -28,16 +28,14 @@ body {
         align-items: center;
         width: 35%;
         height: 70vh;
-        border: 1px solid black;
-        
-
-
 
         .img {
             width: 100%;
             height: 60%;
             display: grid;
             place-items: center;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
             img {
                 width: 20vw;
                 height: 100%;
@@ -54,6 +52,8 @@ body {
             height: 100%;
             background: url('../../assets/pokedexmenu.png') no-repeat;
             background-size: 100% 100%;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
         }
     }
 }
