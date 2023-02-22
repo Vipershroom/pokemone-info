@@ -7,11 +7,10 @@ const Pokemon = (props: PokemonInterface) => {
   console.log(props.moves)
 
   const handleOverflow = () => {
-    let new_arr = []
-    for (let i = 0; i < 4; i++) {
-      new_arr.push(props.moves[i].move.name)
-    }
-    return new_arr
+    return [props.moves[0].move.name,
+    props.moves[1].move.name,
+    props.moves[2].move.name,
+    props.moves[3].move.name]
   }
 
   return (
