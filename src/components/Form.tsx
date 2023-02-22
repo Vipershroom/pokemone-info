@@ -28,15 +28,13 @@ const Form = (props: onSubmit) => {
         if (input.search === "" || input.search === " ") {
             return
         }
-        console.log(input.select === "Items")
-        console.log(input.search)
         setInput({
             ...input,
             search: addHyphen(input.search),
         })
-
+        console.log(input.select)
         props.onSubmit({
-            ...input,
+            select: input.select,
             search: addHyphen(input.search)
         })
         setInput({

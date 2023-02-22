@@ -21,8 +21,9 @@ function App() {
 
   const handleForm = (output: Output) => {
     output.search = output.search.toLowerCase()
+    console.log(output)
     setState(output)
-    console.log(state)
+    console.log(state.select)
   }
   const url = ["https://pokeapi.co/api/v2/pokemon/", "https://pokeapi.co/api/v2/item/"]
   const [render, setRender] = useState<PokemonInterface | ItemsInterface>({
@@ -37,6 +38,7 @@ function App() {
   })
 
   useEffect(() => {
+    console.log(state.select)
     if (state.select === "Pokemon") {
       const data = getData(url[0] + state.search)
       data.then((response: PokemonInterface) => {
@@ -61,7 +63,6 @@ function App() {
             front_default: response.sprites.front_default
           }
         }
-        console.log(poke)
         setRender(poke) 
       })
     } else {
