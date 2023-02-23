@@ -32,7 +32,6 @@ const Form = (props: onSubmit) => {
             ...input,
             search: addHyphen(input.search),
         })
-        console.log(input.select)
         props.onSubmit({
             select: input.select,
             search: addHyphen(input.search)

@@ -17,15 +17,10 @@ function App() {
     search: 'clefairy',
     select: "Pokemon",
   })
-  
 
-  const handleForm = (output: Output) => {
-    output.search = output.search.toLowerCase()
-    console.log(output)
-    setState(output)
-    console.log(state.select)
-  }
-  const url = ["https://pokeapi.co/api/v2/pokemon/", "https://pokeapi.co/api/v2/item/"]
+  const [isPokemon, setIsPokemon] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+
   const [render, setRender] = useState<PokemonInterface | ItemsInterface>({
     name: '',
     abilities: [],
@@ -36,13 +31,40 @@ function App() {
       front_default: "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
     }
   })
+  const url = ["https://pokeapi.co/api/v2/pokemon/", "https://pokeapi.co/api/v2/item/"]
+
+  const handleForm = (output: Output) => {
+    output.search = output.search.toLowerCase()
+    setState(output)
+    if (output.select === "Pokemon") {
+      setIsLoading(true)
+      setIsPokemon(true)
+    } else {
+      setIsLoading(true)
+      setIsPokemon(false)
+    }
+    
+    
+  }
 
   useEffect(() => {
-    console.log(state.select)
-    if (state.select === "Pokemon") {
+    console.log(state)
+    if (isPokemon) {
       const data = getData(url[0] + state.search)
+      
       data.then((response: PokemonInterface) => {
+        console.log(response)
         if (response === undefined) {
+          setRender({
+            name: '',
+            abilities: [],
+            moves: [],
+            id: 0,
+            types: [],
+            sprites: {
+              front_default: "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
+            }
+          })
           setRender({
             ...render,
             name: "Not found",
@@ -53,6 +75,16 @@ function App() {
           })
           return
         }
+        setRender({
+          name: '',
+          abilities: [],
+          moves: [],
+          id: 0,
+          types: [],
+          sprites: {
+            front_default: "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
+          }
+        })
         const poke: PokemonInterface = {
           name: response.name,
           abilities: response.abilities,
@@ -64,6 +96,9 @@ function App() {
           }
         }
         setRender(poke) 
+        setIsLoading(false)
+        setIsPokemon(false)
+        setIsPokemon(true)
       })
     } else {
       getData(url[1] + state.search).then((response: ItemsInterface) => {
@@ -89,11 +124,15 @@ function App() {
           }
         })
       })
+      setIsLoading(false)
+      setIsPokemon(true)
+      setIsPokemon(false)
     }
   }, [state])
 
   async function getData(url: string) {
     try {
+      console.log(url)
       const response = await fetch(url)
       return await response.json()
     } catch {
@@ -104,7 +143,7 @@ function App() {
   return (
     <div className='container'>
       <div className="card">
-        {(state.select === "Pokemon") ? <Pokemon {...render as PokemonInterface}/> : <Item {...render as ItemsInterface}/> }
+        {(isPokemon && !isLoading) ? <Pokemon {...render as PokemonInterface}/> : <Item {...render as ItemsInterface}/> }
       </div>
       <div className="form-component">
         <Form onSubmit={handleForm}/>

@@ -4,7 +4,6 @@ import './styles/shared.scss'
 import IMG from '../assets/pikachutest.png'
 
 const Pokemon = (props: PokemonInterface) => {
-  console.log(props.moves)
 
   const handleOverflow = () => {
     let new_arr = []
